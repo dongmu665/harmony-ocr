@@ -1,4 +1,4 @@
-# V2.0 Signing Readiness Boundary
+# Signing Readiness Boundary
 
 ## Scope
 

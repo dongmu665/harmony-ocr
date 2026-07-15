@@ -7,7 +7,7 @@ import { CacheCleanupService } from '../features/settings/CacheCleanupService';
 import { RecognitionLanguage, UserPreferenceService, UserPreferences } from '../features/settings/UserPreferenceService';
 
 /**
- * SettingsPage 提供 V1.1 的本地体验设置入口。
+ * SettingsPage 提供本地体验设置入口。
  * 维护说明：仅保存非敏感偏好，不触碰 Token、账号、云端历史或 OCR 全文。
  */
 @Entry
@@ -269,15 +269,14 @@ struct SettingsPage {
   @Builder
   private aboutSection() {
     Column({ space: 10 }) {
-      HtmlSectionHead({ title: '关于', meta: '版本' })
+      HtmlSectionHead({ title: '关于', meta: '产品信息' })
       List({ space: 0 }) {
         ListItem() {
           HtmlListRow({
             index: 0,
             mark: 'DOC',
             title: 'Harmony OCR',
-            meta: 'Document Workspace',
-            badge: 'v2.0'
+            meta: 'OCR 文本工作台'
           })
         }
       }

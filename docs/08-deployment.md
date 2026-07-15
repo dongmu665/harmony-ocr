@@ -40,7 +40,7 @@ Nginx 作为 HTTPS 入口和反向代理。当前模板只代理 `/api/` 和 `/h
 
 ## 10. 密钥管理
 
-JWT secret、数据库密码、Redis 密码、MinIO Access Key 和 Secret Key 必须来自环境变量或密钥管理系统。V2.0 如保存用户 API Key，推荐使用 KMS 或独立密钥管理方案。
+JWT secret、数据库密码、Redis 密码、MinIO Access Key 和 Secret Key 必须来自环境变量或密钥管理系统。如在后端保存用户 API Key，推荐使用 KMS 或独立密钥管理方案。
 
 ## 11. 日志
 

@@ -1,4 +1,4 @@
-# V2.0 Deployment Readiness Checklist
+# Deployment Readiness Checklist
 
 ## Required Before Production
 

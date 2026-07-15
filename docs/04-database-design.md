@@ -8,7 +8,7 @@
 - 用户资源必须通过 `user_id` 隔离。
 - 删除优先软删除，账号注销需执行数据删除或匿名化策略。
 
-## V1.0 MySQL 表设计
+## MySQL 核心表设计
 
 ### 1. users
 
@@ -124,7 +124,7 @@
 | updated_at | 更新时间 |
 | deleted | 软删除标记 |
 
-## V1.0 推荐索引
+## 推荐索引
 
 - `users(username)` unique
 - `users(phone)` unique, nullable
@@ -145,9 +145,9 @@
 - `feedback(status, created_at)`
 - `feedback(feedback_type, created_at)`
 
-V1.0 搜索历史记录可以先使用 MySQL `LIKE` 或 MySQL 全文索引。若后续搜索体验不足，再评估独立搜索服务。
+当前历史搜索可以先使用 MySQL `LIKE` 或 MySQL 全文索引。若后续搜索体验不足，再评估独立搜索服务。
 
-## V1.2 Advanced OCR Productivity 表设计
+## 高级 OCR 与生产力表设计
 
 ### 1. recognition_tags
 
@@ -184,7 +184,7 @@ V1.0 搜索历史记录可以先使用 MySQL `LIKE` 或 MySQL 全文索引。若
 
 高级搜索继续使用当前用户和未删除记录作为基础条件，标签过滤使用受控 `EXISTS` 子查询，避免多标签 join 造成分页重复。
 
-## V1.0 同步与删除策略
+## 同步与删除策略
 
 - `recognition_records.updated_at` 用于增量同步。
 - `recognition_records.deleted_at` 用于软删除同步。
@@ -196,7 +196,7 @@ V1.0 搜索历史记录可以先使用 MySQL `LIKE` 或 MySQL 全文索引。若
 
 ### 1. ai_provider_configs
 
-该表由 V7、V9 和 V10 迁移共同建立，用于保存每个用户自己的 Provider 配置和加密密钥材料。
+该表由相关数据库迁移共同建立，用于保存每个用户自己的 Provider 配置和加密密钥材料。
 
 | 字段 | 说明 |
 | --- | --- |
@@ -220,7 +220,7 @@ V1.0 搜索历史记录可以先使用 MySQL `LIKE` 或 MySQL 全文索引。若
 
 ### 2. ai_runtime_consents
 
-该表由 V16 迁移建立，只记录用户是否允许将 OCR 文本发送给第三方 AI Provider，不保存 OCR 文本、prompt、响应或密钥。
+该表由相应数据库迁移建立，只记录用户是否允许将 OCR 文本发送给第三方 AI Provider，不保存 OCR 文本、prompt、响应或密钥。
 
 | 字段 | 说明 |
 | --- | --- |

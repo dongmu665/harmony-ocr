@@ -7,7 +7,7 @@ import { FeedbackService } from '../features/feedback/FeedbackService';
 import { FeedbackType } from '../features/feedback/FeedbackModels';
 
 /**
- * FeedbackPage 提供 V1.0 用户反馈提交表单，属于反馈模块。
+ * FeedbackPage 提供用户反馈提交表单，属于反馈模块。
  * 维护说明：反馈内容由用户主动填写，不自动附带 Token、OCR 全文、图片 URI 或对象存储 key。
  */
 @Entry
@@ -46,7 +46,7 @@ struct FeedbackPage {
         content: normalizedContent,
         contact: this.contact.trim().length > 0 ? this.contact.trim() : undefined,
         deviceInfo: 'HarmonyOS device',
-        appVersion: 'V1.0'
+        appVersion: 'release'
       });
       this.content = '';
       this.contact = '';

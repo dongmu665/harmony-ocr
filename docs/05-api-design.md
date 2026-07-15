@@ -85,13 +85,13 @@
 
 ### Record 查询参数
 
-- `GET /api/v1/records` 当前实现支持 `page`、`size`、`keyword`、`sourceType`、`favorite`、`createdFrom`、`createdTo`、`dateFrom`、`dateTo`、`tagId`、`ocrEngine`、`sort`；查询始终按当前用户和未删除记录过滤。`createdFrom` / `createdTo` 保留为兼容别名，`dateFrom` / `dateTo` 是 V1.2 推荐参数。`updated_after`、`include_deleted` 属于后续同步扩展字段，V1.1 前端不依赖。
+- `GET /api/v1/records` 当前实现支持 `page`、`size`、`keyword`、`sourceType`、`favorite`、`createdFrom`、`createdTo`、`dateFrom`、`dateTo`、`tagId`、`ocrEngine`、`sort`；查询始终按当前用户和未删除记录过滤。`createdFrom` / `createdTo` 保留为兼容别名，`dateFrom` / `dateTo` 是推荐参数。`updated_after`、`include_deleted` 属于后续同步扩展字段，当前客户端不依赖。
 - `GET /api/v1/records/search` 支持 `keyword`、`page`、`size`。
 - `sort` 只允许 `createdAt_desc`、`createdAt_asc`、`updatedAt_desc`、`updatedAt_asc`、`durationMs_desc`、`durationMs_asc`，默认 `createdAt_desc`。
 - `updated_after` 用于登录用户增量同步。
 - `include_deleted=true` 用于客户端同步软删除记录。
-- V1.0 同步采用服务端为准策略，复杂冲突合并留到后续版本。
-- V1.0 同步冲突策略为 `LAST_WRITE_WINS`：同一账号连续调用 `PATCH /api/v1/records/{id}` 时，后到达且成功处理的请求覆盖同字段前值。当前不实现 `If-Match`、版本号、`409/SYNC_CONFLICT` 编辑冲突或复杂合并；这些属于后续版本策略。
+- 当前同步采用服务端为准策略，复杂冲突合并留到后续能力扩展。
+- 当前同步冲突策略为 `LAST_WRITE_WINS`：同一账号连续调用 `PATCH /api/v1/records/{id}` 时，后到达且成功处理的请求覆盖同字段前值。当前不实现 `If-Match`、版本号、`409/SYNC_CONFLICT` 编辑冲突或复杂合并；这些属于后续能力策略。
 
 ## 9. File API
 
@@ -129,7 +129,7 @@
 - API Key 只出现在创建或更新请求中；后端响应只返回脱敏元数据、fingerprint 和安全存储状态。
 - 当前仓库没有实现设备侧 HUKS/KeyStore 或客户端直连第三方 AI 的纯端侧模式。
 
-### V2.0 后端代理模式
+### 后端代理模式
 
 - `POST /api/v1/ai/actions`：AI Provider contract 入口，对当前用户拥有的 OCR 记录执行 AI 文本处理。当前实现支持 OpenAI-compatible Provider；当用户存在启用的默认 BYOK Provider 时，服务端优先在内存中解密该 Provider 的 API Key 并调用其 OpenAI-compatible `/chat/completions`；否则可使用进程运行时配置的兼容 API，缺失真实 Provider 时返回明确的降级结果。
   - 请求字段：
@@ -162,9 +162,9 @@
 - `DELETE /api/v1/ai/providers/{id}`：软删除当前用户 provider 配置。
 - `POST /api/v1/ai/providers/{id}/test`：对通过目标校验的 Provider 发起真实 OpenAI-compatible `/chat/completions` 请求，并在内存中解密 API Key 后作为 Bearer 凭据发送。外部目标必须使用 HTTPS，HTTP 仅允许 loopback；成功返回 `REAL_SUCCESS`，失败返回脱敏 `REAL_FAILED`。测试接口不得记录 key、prompt、响应全文或 OCR 原文。
 - `POST /api/v1/ai/providers/{id}/reencrypt`：使用当前运行时主密钥重新加密当前用户 provider 的 API Key。服务端只在内存中短暂解密并写入新的 AES-GCM 密文；fingerprint 保持不变，响应仍不返回 `apiKey` 或密文。该接口提供应用级重加密能力，不替代生产 KMS 和密钥版本管理。
-V2.0 后端代理已具备 AES-GCM 加密保存 API Key、脱敏返回配置、尾号展示、默认 BYOK Provider 调用、应用级重加密、Base URL 校验和连接测试私网地址拦截。生产化前仍必须补充 KMS、密钥版本迁移、完整出站域名策略、DNS 重绑定防护、重定向限制、调用审计和超时/重试策略。
+当前后端代理已具备 AES-GCM 加密保存 API Key、脱敏返回配置、尾号展示、默认 BYOK Provider 调用、应用级重加密、Base URL 校验和连接测试私网地址拦截。生产化前仍必须补充 KMS、密钥版本迁移、完整出站域名策略、DNS 重绑定防护、重定向限制、调用审计和超时/重试策略。
 
-## 12. V2.0 OCR / Batch and Scanned PDF Input API
+## 12. OCR / Batch and Scanned PDF Input API
 
 ### Batch OCR
 
@@ -201,7 +201,7 @@ V2.0 后端代理已具备 AES-GCM 加密保存 API Key、脱敏返回配置、�
   - 前端调用：ArkUI `AlbumPage` 的“选择扫描型 PDF”入口使用系统文件选择器读取 PDF bytes 并 multipart 上传该接口；`OcrResultPage` 展示聚合文本、页数、成功/失败页和页摘要，已有 `recordId` 时不重复伪造保存。
   - 安全边界：日志和审计输出不得记录 PDF bytes、OCR 全文、Authorization、Token、API Key、完整本地 URI、路径或 objectKey。`failureReason` 必须是面向产品的脱敏短文案。
 
-## 13. V2.0 Export / Searchable PDF API
+## 13. Export / Searchable PDF API
 
 - `POST /api/v1/exports/pdf`: 创建 PDF 或 searchable PDF 导出任务。
   - 请求字段：
@@ -224,7 +224,7 @@ V2.0 后端代理已具备 AES-GCM 加密保存 API Key、脱敏返回配置、�
 - 安全边界：导出 API 不接受客户端 userId、磁盘路径或 objectKey；当前实现不把导出全文写入日志或审计输出。
 - 当前实现通过后端测试验证 searchable PDF 下载内容包含可抽取 OCR 文本层，并使用数据库保存任务状态和下载内容。生产化应把导出文件迁移到对象存储，并补充过期清理、容量限制和外部 PDF 阅读器兼容矩阵。
 
-## 14. V2.0 Admin / Membership / Quota API
+## 14. Admin / Membership / Quota API
 
 ### Membership API
 

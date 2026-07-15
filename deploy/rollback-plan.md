@@ -1,4 +1,4 @@
-# V2.0 Production Rollback Plan
+# Production Rollback Plan
 
 ## Scope
 
