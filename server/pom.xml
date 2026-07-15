@@ -53,7 +53,7 @@
         <java.version>21</java.version>
         <maven.compiler.release>21</maven.compiler.release>
         <mybatis-plus.version>3.5.9</mybatis-plus.version>
-        <minio.version>8.5.12</minio.version>
+        <minio.version>9.0.3</minio.version>
         <jjwt.version>0.12.6</jjwt.version>
         <pdfbox.version>3.0.7</pdfbox.version>
     </properties>
