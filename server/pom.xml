@@ -55,7 +55,7 @@
         <mybatis-plus.version>3.5.9</mybatis-plus.version>
         <minio.version>8.5.12</minio.version>
         <jjwt.version>0.12.6</jjwt.version>
-        <pdfbox.version>3.0.7</pdfbox.version>
+        <pdfbox.version>3.0.8</pdfbox.version>
     </properties>
 
     <dependencies>
