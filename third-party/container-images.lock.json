@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-07-15",
+  "images": [
+    {
+      "name": "mysql",
+      "reference": "mysql:8.4@sha256:c831a0f11348d402b43d77453e17d770be2eef356615a2823fe0f5a0d6c8b9af",
+      "repository": "docker.io/library/mysql",
+      "tag": "8.4",
+      "platform": "linux/amd64",
+      "digest": "sha256:ef9038553b7ea407704f16770e407ffd32f5566f125d0d94f63ff736af1d43f8",
+      "indexDigest": "sha256:c831a0f11348d402b43d77453e17d770be2eef356615a2823fe0f5a0d6c8b9af",
+      "license": {
+        "name": "GPL-2.0-only with the MySQL FOSS License Exception",
+        "url": "https://www.mysql.com/about/legal/licensing/foss-exception/"
+      }
+    },
+    {
+      "name": "redis",
+      "reference": "redis:7.4-alpine@sha256:6ab0b6e7381779332f97b8ca76193e45b0756f38d4c0dcda72dbb3c32061ab99",
+      "repository": "docker.io/library/redis",
+      "tag": "7.4-alpine",
+      "platform": "linux/amd64",
+      "digest": "sha256:b1addbe72465a718643cff9e60a58e6df1841e29d6d7d60c9a85d8d72f08d1a7",
+      "indexDigest": "sha256:6ab0b6e7381779332f97b8ca76193e45b0756f38d4c0dcda72dbb3c32061ab99",
+      "license": {
+        "name": "RSALv2 OR SSPLv1",
+        "url": "https://redis.io/legal/licenses/"
+      }
+    },
+    {
+      "name": "minio",
+      "reference": "minio/minio:RELEASE.2024-10-13T13-34-11Z@sha256:9535594ad4122b7a78c6632788a989b96d9199b483d3bd71a5ceae73a922cdfa",
+      "repository": "docker.io/minio/minio",
+      "tag": "RELEASE.2024-10-13T13-34-11Z",
+      "platform": "linux/amd64",
+      "digest": "sha256:477acdac119305949d9a6f5f3fbe2d8029e18c5e39de11034d3ffec03cc69e48",
+      "indexDigest": "sha256:9535594ad4122b7a78c6632788a989b96d9199b483d3bd71a5ceae73a922cdfa",
+      "license": {
+        "name": "AGPL-3.0-only",
+        "url": "https://github.com/minio/minio/blob/master/LICENSE"
+      }
+    },
+    {
+      "name": "nginx",
+      "reference": "nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10",
+      "repository": "docker.io/library/nginx",
+      "tag": "1.27-alpine",
+      "platform": "linux/amd64",
+      "digest": "sha256:62223d644fa234c3a1cc785ee14242ec47a77364226f1c811d2f669f96dc2ac8",
+      "indexDigest": "sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10",
+      "license": {
+        "name": "BSD-2-Clause",
+        "url": "https://nginx.org/LICENSE"
+      }
+    }
+  ]
+}

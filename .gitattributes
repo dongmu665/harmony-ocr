@@ -1,0 +1,4 @@
+admin-console/console.html text eol=lf
+server/src/main/resources/static/admin/console.html text eol=lf
+server/src/main/resources/static/admin/assets/console.css text eol=lf
+server/src/main/resources/static/admin/assets/console.js text eol=lf

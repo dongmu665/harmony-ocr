@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: harmony-ocr-server
+  servlet:
+    multipart:
+      max-file-size: ${FILE_UPLOAD_MAX_SIZE:10485760B}
+      max-request-size: ${FILE_UPLOAD_MAX_SIZE:10485760B}
+
+server:
+  port: ${SERVER_PORT:8080}
+
+management:
+  endpoints:
+    enabled-by-default: false
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:}
+    access-token-ttl-minutes: ${JWT_ACCESS_TOKEN_TTL_MINUTES:30}
+    refresh-token-ttl-days: ${JWT_REFRESH_TOKEN_TTL_DAYS:30}
+  file:
+    max-size-bytes: ${FILE_UPLOAD_MAX_SIZE_BYTES:10485760}
+  activation-code:
+    pepper: ${ACTIVATION_CODE_PEPPER:${JWT_SECRET:}}
+  ocr:
+    enabled: ${OCR_ENABLED:true}
+    provider: ${OCR_PROVIDER:windows}
+    failover-enabled: ${OCR_FAILOVER_ENABLED:false}
+    executable: ${OCR_EXECUTABLE:powershell.exe}
+    language: ${OCR_LANGUAGE:eng}
+    timeout-ms: ${OCR_TIMEOUT_MS:15000}
+    max-size-bytes: ${OCR_MAX_SIZE_BYTES:10485760}
+    service-url: ${OCR_SERVICE_URL:http://127.0.0.1:8866}
+    health-path: ${OCR_HEALTH_PATH:/health}
+    pdf:
+      max-size-bytes: ${OCR_PDF_MAX_SIZE_BYTES:10485760}
+      max-pages: ${OCR_PDF_MAX_PAGES:20}
+      render-dpi: ${OCR_PDF_RENDER_DPI:200}
+      max-rendered-pixels: ${OCR_PDF_MAX_RENDERED_PIXELS:20000000}
+      allow-encrypted: ${OCR_PDF_ALLOW_ENCRYPTED:false}
+  ai:
+    provider: ${AI_PROVIDER:}
+    failover-enabled: ${AI_FAILOVER_ENABLED:false}
+    base-url: ${OPENAI_BASE_URL:http://localhost:51379/v1}
+    api-key: ${OPENAI_API_KEY:}
+    model: ${OPENAI_MODEL:gpt-5.4}
+    timeout-ms: ${AI_TIMEOUT_MS:30000}
+    byok:
+      encryption-secret: ${AI_KEY_ENCRYPTION_SECRET:}

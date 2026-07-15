@@ -1,0 +1,39 @@
+title = "Harmony OCR public repository secret scanning"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Synthetic test access key"
+condition = "AND"
+regexTarget = "line"
+paths = ['''^server[\\/]src[\\/]main[\\/]resources[\\/]application-test\.yml$''']
+regexes = ['''^\s*access-key:\s*test\s*$''']
+
+[[allowlists]]
+description = "Synthetic test secret key"
+condition = "AND"
+regexTarget = "line"
+paths = ['''^server[\\/]src[\\/]main[\\/]resources[\\/]application-test\.yml$''']
+regexes = ['''^\s*secret-key:\s*test\s*$''']
+
+[[allowlists]]
+description = "Synthetic test JWT placeholder"
+condition = "AND"
+regexTarget = "line"
+paths = ['''^server[\\/]src[\\/]main[\\/]resources[\\/]application-test\.yml$''']
+regexes = ['''^\s*secret:\s*test-only-placeholder-not-for-production-at-least-32-characters\s*$''']
+
+[[allowlists]]
+description = "Synthetic test activation-code pepper"
+condition = "AND"
+regexTarget = "line"
+paths = ['''^server[\\/]src[\\/]main[\\/]resources[\\/]application-test\.yml$''']
+regexes = ['''^\s*pepper:\s*test-only-activation-code-pepper-not-for-production\s*$''']
+
+[[allowlists]]
+description = "Synthetic test BYOK encryption secret"
+condition = "AND"
+regexTarget = "line"
+paths = ['''^server[\\/]src[\\/]main[\\/]resources[\\/]application-test\.yml$''']
+regexes = ['''^\s*encryption-secret:\s*test-only-byok-encryption-secret-not-for-production\s*$''']

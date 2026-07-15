@@ -1,0 +1,75 @@
+name: Bug 报告
+description: 报告可复现的功能、构建或运行问题
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        安全漏洞请改用 GitHub 私密漏洞报告。提交内容必须使用合成或已脱敏数据；不得附带凭据、OCR 原文、用户图片、对象存储 key、完整媒体 URI 或个人信息。
+  - type: dropdown
+    id: component
+    attributes:
+      label: 影响模块
+      options:
+        - HarmonyOS 客户端
+        - Spring Boot 服务端
+        - Web 管理台
+        - Docker 与部署
+        - 文档与构建工具
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: 问题描述
+      description: 简要说明问题及影响，不要粘贴敏感数据。
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 使用最小化合成数据给出稳定复现步骤。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期行为
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境信息
+      description: 提供操作系统、提交或版本及相关工具版本。请删除用户名、本机路径和网络地址。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 已脱敏证据
+      description: 可选。只附带已脱敏的最小日志、截图或堆栈。
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我已搜索现有 Issue，确认没有相同报告。
+          required: true
+        - label: 我确认本报告不包含密码、Token、API Key、证书、私钥或生产配置。
+          required: true
+        - label: 我确认本报告不包含真实 OCR 文本、用户图片、账号信息或其他个人数据。
+          required: true
+        - label: 我确认本报告不包含对象存储 key、完整媒体 URI 或可关联真实资源的标识符。
+          required: true
+        - label: 我确认这不是需要私密处理的安全漏洞。
+          required: true

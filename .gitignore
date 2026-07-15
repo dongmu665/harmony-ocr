@@ -1,0 +1,78 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Java / Spring Boot
+target/
+*.class
+*.jar
+*.war
+*.ear
+.gradle/
+out/
+
+# HarmonyOS / DevEco / ArkTS
+oh_modules/
+node_modules/
+.hvigor/
+.preview/
+.ohpm/
+.cxx/
+build/
+.externalNativeBuild/
+local.properties
+hvigor-wrapper.js
+hvigor-wrapper.js.map
+hvigorw
+hvigorw.bat
+coverage/
+
+# Logs
+*.log
+*.log.*
+
+# Env
+.env
+.env.*
+!.env.example
+application-local.yml
+application-prod.yml
+
+# Local database / middleware data
+mysql-data/
+redis-data/
+minio-data/
+
+# Secrets and certificates
+secrets/
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.jks
+
+# Temporary files
+tmp/
+temp/
+.scratch/
+__pycache__/
+*.py[cod]
+*.bak
+*.tmp
+*.swp
+*.swo
+~$*
+
+# Generated browser and package-manager output
+output/
+
+# Ad-hoc device/UI probe dumps
+*-probe.json

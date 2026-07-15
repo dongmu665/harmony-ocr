@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "Harmony OCR"
+    },
+    {
+      "name": "module_desc",
+      "value": "Harmony OCR entry module"
+    },
+    {
+      "name": "entry_ability_desc",
+      "value": "Harmony OCR main ability"
+    },
+    {
+      "name": "internet_reason",
+      "value": "用于访问 OCR 后端服务"
+    },
+    {
+      "name": "camera_reason",
+      "value": "用于拍照识别"
+    },
+    {
+      "name": "album_reason",
+      "value": "用于从相册选择图片识别"
+    }
+  ]
+}

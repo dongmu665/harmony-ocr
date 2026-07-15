@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4efe6" />
+    <link rel="icon" href="data:," />
+    <title>Harmony OCR Admin Console</title>
+    <script type="module" crossorigin src="/admin/assets/console.js"></script>
+    <link rel="stylesheet" crossorigin href="/admin/assets/console.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="application/json" id="admin-console-contract">
+      {
+        "app": "Harmony OCR Admin Console",
+        "runtime": "React/Vite local bundle, no CDN",
+        "auth": ["sessionStorage", "/api/v1/auth/login", "/api/v1/admin/me", "/api/v1/users/me", "/api/v1/users/me/password", "/api/v1/auth/logout"],
+        "adminApis": ["/api/v1/admin/usage/summary", "/api/v1/admin/users", "/api/v1/admin/activation-codes", "/api/v1/admin/records", "/api/v1/admin/feedback", "/api/v1/admin/audit-logs"],
+        "fields": ["membershipLevel", "ocrQuota", "aiQuota", "exportQuota"]
+      }
+    </script>
+  </body>
+</html>

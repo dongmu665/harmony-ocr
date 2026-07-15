@@ -1,0 +1,11 @@
+{
+  "name": "harmony-ocr-app",
+  "version": "0.1.0",
+  "description": "HarmonyOS OCR mobile client",
+  "modelVersion": "5.0.0",
+  "main": "",
+  "author": "Harmony OCR maintainers",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}

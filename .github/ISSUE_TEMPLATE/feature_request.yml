@@ -1,0 +1,55 @@
+name: 功能建议
+description: 提议符合产品范围的新能力或改进
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        功能范围以 docs/01-prd.md 和 docs/02-srs.md 为准。请勿提交凭据、OCR 原文、用户图片、对象存储 key、完整媒体 URI、生产配置或个人信息。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 用户问题
+      description: 说明要解决的真实用户问题，不要只描述实现方案。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议方案
+      description: 描述预期行为、主要交互和范围边界。
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 需求依据
+      description: 指出相关 PRD 或 SRS 章节；如无对应章节，请说明需先补充的需求。
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 替代方案
+      description: 说明已考虑的替代方案与取舍。
+  - type: textarea
+    id: privacy
+    attributes:
+      label: 安全与隐私影响
+      description: 说明是否涉及文件、OCR 文本、账号、第三方服务、网络地址、API Key、日志或数据删除。
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我已搜索现有 Issue，确认没有相同建议。
+          required: true
+        - label: 我确认此建议不包含任何凭据、生产配置或安全漏洞细节。
+          required: true
+        - label: 我确认此建议不包含真实 OCR 文本、用户图片、账号信息或其他个人数据。
+          required: true
+        - label: 我确认此建议不包含对象存储 key、完整媒体 URI 或可关联真实资源的标识符。
+          required: true

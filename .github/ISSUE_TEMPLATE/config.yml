@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 私密报告安全漏洞
+    url: https://github.com/3128698033/harmony-ocr/security/advisories/new
+    about: 不要公开漏洞细节；请通过 GitHub Security Advisory 私密联系维护者。

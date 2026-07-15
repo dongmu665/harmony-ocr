@@ -1,0 +1,33 @@
+{
+    "src":  [
+                "pages/SplashPage",
+                "pages/WelcomePage",
+                "pages/LoginPage",
+                "pages/RegisterPage",
+                "pages/ResetPasswordPage",
+                "pages/ConsentDialogPage",
+                "pages/LoginSuccessPage",
+                "pages/HomePage",
+                "pages/CapturePage",
+                "pages/AlbumPage",
+                "pages/ImagePreviewPage",
+                "pages/ImageCropPage",
+                "pages/OcrProcessingPage",
+                "pages/OcrResultPage",
+                "pages/HistoryPage",
+                "pages/RecordDetailPage",
+                "pages/ProfilePage",
+                "pages/SettingsPage",
+                "pages/AgreementPage",
+                "pages/PrivacyPage",
+                "pages/AccountDeletionPage",
+                "pages/DataDeletionPage",
+                "pages/FeedbackPage",
+                "pages/BatchOcrPage",
+                "pages/ExportCenterPage",
+                "pages/AiWorkspacePage",
+                "pages/ByokProviderPage",
+                "pages/QuotaCenterPage",
+                "pages/AdminDashboardPage"
+            ]
+}
