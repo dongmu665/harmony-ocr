@@ -3,7 +3,7 @@
   <p><strong>在 HarmonyOS 上，把图片变成可编辑、可检索的文字。</strong></p>
   <p>拍照 · 相册导入 · OCR · 文本整理 · 云端历史 · 受控 AI</p>
   <p>
-    <a href="https://github.com/3128698033/harmony-ocr/actions/workflows/ci.yml"><img src="https://github.com/3128698033/harmony-ocr/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI 状态"></a>
+    <a href="https://github.com/3128698033/harmony-ocr/actions/workflows/ci.yml"><img src="https://github.com/dongmu665/harmony-ocr/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI 状态"></a>
     &nbsp;·&nbsp;
     <a href="#快速开始">快速开始</a>
     &nbsp;·&nbsp;
